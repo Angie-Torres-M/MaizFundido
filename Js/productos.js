@@ -1,4 +1,39 @@
-(() => {
+
+/*carrrito*/ (() => {
+  
+  (function () {
+    const cartIcon  = document.getElementById('cart-icon');
+    const cartPanel = document.getElementById('cart-panel');
+    const closeBtn  = cartPanel.querySelector('.cart-close');
+
+    function openCart()  { cartPanel.style.display = 'block'; }
+    function closeCart() { cartPanel.style.display = 'none'; }
+    function isOpen()    { return cartPanel.style.display !== 'none'; }
+    function toggleCart(){ isOpen() ? closeCart() : openCart(); }
+
+    cartIcon.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleCart();
+    });
+
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeCart();
+    });
+
+    // Clic fuera del panel lo cierra
+    document.addEventListener('click', (e) => {
+      if (!isOpen()) return;
+      if (!cartPanel.contains(e.target) && !cartIcon.contains(e.target)) closeCart();
+    });
+
+    // Cerrar con ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) closeCart();
+    });
+  })();
+
+
   /* ========= Utilidades ========= */
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
