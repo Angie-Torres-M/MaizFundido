@@ -1,3 +1,71 @@
+/*Estilo carrito de compras flotante*/
+/* Botón flotante */
+#cart-icon {
+  position: fixed;
+  right: 24px;
+  top: 140px;              /* ajusta según tu header */
+  z-index: 1101;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 6px 8px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+
+#cart-icon .cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  min-width: 20px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
+  text-align: center;
+  background: #bad200;    /* verde Maíz Fundido */
+  color: #000;
+  border-radius: 999px;
+  padding: 0 6px;
+}
+
+/* Panel flotante */
+.cart-float {
+  position: fixed;
+  right: 24px;
+  top: 210px;             /* aparece debajo del botón; ajusta si quieres */
+  width: 360px;
+  max-height: 70vh;
+  overflow: auto;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  z-index: 1100;
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);
+}
+
+/* Header del panel */
+.cart-drag-handle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .75rem 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fafafa;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+/* Contenido y footer */
+.cart-panel-body { padding: .75rem 1rem; }
+.cart-panel-footer { padding: .75rem 1rem 1rem; }
+
+/* Responsive */
+@media (max-width: 576px) {
+  #cart-icon { right: 12px; top: 90px; }
+  .cart-float { right: 12px; left: 12px; width: auto; top: 150px; }
+}
+
+
+
 /* Galería de productos */
 .container-galery-quienessomos {
     display: grid;
